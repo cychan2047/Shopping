@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="277142c2-509e-41ec-8ae2-14136d585bc6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="277142c2-509e-41ec-8ae2-14136d585bc6" name="Changes" comment="Fixed the tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/main/java/com/chuwa/accountservice/AccountServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/main/java/com/chuwa/accountservice/AccountServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountService/src/test/java/com/chuwa/accountservice/AccountServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/AccountService/src/test/java/com/chuwa/accountservice/AccountServiceApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +42,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -55,7 +51,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.AccountServiceApplication">
     <configuration name="AccountServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="AccountService" />
@@ -64,12 +60,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ItemServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="ItemService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chuwa.itemservice.ItemServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.27812.49" />
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.27812.49" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-IU-252.23892.409" />
       </set>
     </attachedChunks>
   </component>
@@ -83,10 +87,25 @@
       <workItem from="1754317402456" duration="3273000" />
       <workItem from="1754353416358" duration="38000" />
       <workItem from="1754356450890" duration="2700000" />
+      <workItem from="1754894500092" duration="572000" />
+      <workItem from="1754902369079" duration="58000" />
     </task>
+    <task id="LOCAL-00001" summary="Fixed the tests">
+      <option name="closed" value="true" />
+      <created>1754894624658</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1754894624658</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed the tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the tests" />
   </component>
 </project>
