@@ -31,3 +31,45 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Build artifacts
+target/
+build/
+out/
+
+# IDE files
+.idea/
+.vscode/
+.eclipse/
+.project
+.classpath
+.settings/
+*.iml
+*.ipr
+*.iws
+
+# Dependency caches
+.gradle/
+.m2/
+node_modules/
+bower_components/
+
+# Log files
+*.log
+logs/
+
+# Environment-specific configuration
+*.properties
+*.yml
+*.env
+
+# Operating System files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary and backup files
+*.tmp
+*.bak
+*~
+*.swp
