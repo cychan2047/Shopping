@@ -22,9 +22,6 @@ public class AccountController {
     private final AuthenticationManager authenticationManager;
     private final JwtTokenUtil jwtTokenUtil;
 
-
-    // ... Autowire AuthenticationManager and JWT utility ...
-
     @PostMapping("/register")
     public ResponseEntity<?> createAccount(@RequestBody User user) {
         User createdUser = accountService.createAccount(user);

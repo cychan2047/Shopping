@@ -1,9 +1,11 @@
 package com.chuwa.accountservice.service;
 
+import com.chuwa.accountservice.config.SecurityConfig;
 import com.chuwa.accountservice.entity.User;
 import com.chuwa.accountservice.repository.UserRepository;
-import org.testng.annotations.Test;
+import org.springframework.context.annotation.Import;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -13,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class) // Enables Mockito for JUnit 5
+@Import(SecurityConfig.class)
 class AccountServiceTest {
 
     @Mock // Creates a mock instance of UserRepository

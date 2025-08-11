@@ -1,14 +1,18 @@
 package com.chuwa.accountservice.util;
 
+import com.chuwa.accountservice.config.SecurityConfig;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.annotation.Import;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.ArrayList;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Import(SecurityConfig.class)
 class JwtTokenUtilTest {
 
     private JwtTokenUtil jwtTokenUtil;
@@ -19,7 +23,7 @@ class JwtTokenUtilTest {
         String testSecret = "a-very-long-and-secure-secret-key-for-testing-purposes-only";
         jwtTokenUtil = new JwtTokenUtil(testSecret);
         // Manually set expiration for consistency in tests
-        // ReflectionTestUtils.setField(jwtTokenUtil, "jwtExpirationInMs", 3600000L); // Optional
+        ReflectionTestUtils.setField(jwtTokenUtil, "jwtExpirationInMs", 3600000L); // Optional
     }
 
     @Test

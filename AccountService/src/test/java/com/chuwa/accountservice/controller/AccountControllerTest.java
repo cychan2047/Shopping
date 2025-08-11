@@ -1,5 +1,6 @@
 package com.chuwa.accountservice.controller;
 
+import com.chuwa.accountservice.config.SecurityConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.chuwa.accountservice.entity.User;
 import com.chuwa.accountservice.service.AccountService;
@@ -20,7 +21,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(AccountController.class) // Loads only the specified controller
-@Import({AccountController.class, SecurityFilterChain.class})
+@Import(SecurityConfig.class)
 class AccountControllerTest {
 
     @Autowired
@@ -34,6 +35,7 @@ class AccountControllerTest {
 
     // We must mock all dependencies of the controller
     @MockBean private JwtTokenUtil jwtTokenUtil;
+
     @MockBean private AuthenticationManager authenticationManager;
 
     @Test
