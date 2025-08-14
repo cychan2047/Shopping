@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="277142c2-509e-41ec-8ae2-14136d585bc6" name="Changes" comment="Fixed the tests">
-      <change afterPath="$PROJECT_DIR$/ItemService/src/main/java/com/chuwa/itemservice/controller/ItemController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItemService/src/main/java/com/chuwa/itemservice/dto/UpdateInventoryRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItemService/src/main/java/com/chuwa/itemservice/model/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItemService/src/main/java/com/chuwa/itemservice/repository/ItemRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItemService/src/main/java/com/chuwa/itemservice/service/ItemService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItemService/src/main/java/com/chuwa/itemservice/service/ItemServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItemService/src/test/java/com/chuwa/itemservice/controller/ItemControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ItemService/src/test/java/com/chuwa/itemservice/service/ItemServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="277142c2-509e-41ec-8ae2-14136d585bc6" name="Changes" comment="Complete ItemService and unit tests">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ItemService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ItemService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OrderService/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,29 +51,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.ItemControllerTest.executor": "Run",
-    "JUnit.ItemServiceImplTest.executor": "Run",
-    "JUnit.ItemServiceTest.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.ItemControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ItemServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ItemServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mongo"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="JUnit.ItemServiceTest">
     <configuration name="ItemControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ItemService" />
@@ -157,7 +147,10 @@
       <workItem from="1754353416358" duration="38000" />
       <workItem from="1754356450890" duration="2700000" />
       <workItem from="1754894500092" duration="572000" />
-      <workItem from="1754902369079" duration="17315000" />
+      <workItem from="1754902369079" duration="22718000" />
+      <workItem from="1755093323680" duration="328000" />
+      <workItem from="1755093793593" duration="25000" />
+      <workItem from="1755093825917" duration="2393000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed the tests">
       <option name="closed" value="true" />
@@ -175,7 +168,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754902603809</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Complete ItemService and unit tests">
+      <option name="closed" value="true" />
+      <created>1754998363231</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1754998363231</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Complete ItemService and unit tests">
+      <option name="closed" value="true" />
+      <created>1755093863645</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1755093863645</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +192,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed the tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the tests" />
+    <MESSAGE value="Complete ItemService and unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Complete ItemService and unit tests" />
   </component>
 </project>
