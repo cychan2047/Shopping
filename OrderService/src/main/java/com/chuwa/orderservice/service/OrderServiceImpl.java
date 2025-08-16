@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -76,7 +78,36 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> findOrdersByUserId(Long userId) {
-        return orderRepository.findByUserId(userId);
+    public Slice<Order> findOrdersByUserId(Long userId, Pageable pageable) {
+        return orderRepository.findByUserId(userId, pageable);
+    }
+
+    @Override
+    @Transactional
+    public Order cancelOrder(UUID orderId) {
+        // 1. Find the order or throw an exception
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found with id: " + orderId));
+
+        // 2. Check if the order is in a state that can be cancelled
+        if (order.getStatus() != OrderStatus.CREATED) {
+            throw new IllegalStateException("Cannot cancel an order that is not in CREATED state.");
+        }
+
+        // 3. Restock the items by calling the ItemService
+        for (OrderItem item : order.getItems()) {
+            // The quantityChange is positive to add the stock back
+            var request = new ItemServiceClient.UpdateInventoryRequest(item.getQuantity());
+            itemServiceClient.updateInventory(item.getProductId(), request);
+        }
+
+        // 4. Update the order status and save
+        order.setStatus(OrderStatus.CANCELLED);
+        Order cancelledOrder = orderRepository.save(order);
+
+        // 5. Publish an event to Kafka
+        kafkaTemplate.send("order-cancelled-topic", "Order cancelled with ID: " + orderId);
+
+        return cancelledOrder;
     }
 }

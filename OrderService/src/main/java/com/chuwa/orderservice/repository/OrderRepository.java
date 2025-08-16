@@ -2,6 +2,8 @@ package com.chuwa.orderservice.repository;
 
 import com.chuwa.orderservice.model.Order;
 import org.springframework.data.cassandra.repository.CassandraRepository;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,5 +19,5 @@ public interface OrderRepository extends CassandraRepository<Order, UUID> {
      * @param userId The ID of the user.
      * @return A list of orders belonging to the user.
      */
-    List<Order> findByUserId(Long userId);
+    Slice<Order> findByUserId(Long userId, Pageable pageable);
 }

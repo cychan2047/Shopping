@@ -25,12 +25,15 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // <-- ADD THIS LINE
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
+                        // Add the Swagger URLs to the permitAll list
                         .requestMatchers(
                                 "/api/accounts/register",
-                                "/api/accounts/register/**",
-                                "/api/accounts/login"
+                                "/api/accounts/login",
+                                "/swagger-ui.html",
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 );

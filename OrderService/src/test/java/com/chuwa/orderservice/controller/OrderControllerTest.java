@@ -16,11 +16,16 @@ import java.util.List;
 import java.util.UUID;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.SliceImpl;
 
 @WebMvcTest(OrderController.class)
 class OrderControllerTest {
@@ -55,17 +60,42 @@ class OrderControllerTest {
     }
 
     @Test
-    void getOrdersByUserId_shouldReturnOrders() throws Exception {
+    void cancelOrder_shouldReturnCancelledOrder() throws Exception {
         // Arrange
-        Order order = new Order();
-        order.setId(UUID.randomUUID());
-        order.setUserId(1L);
+        UUID orderId = UUID.randomUUID();
+        Order cancelledOrder = new Order();
+        cancelledOrder.setId(orderId);
+        cancelledOrder.setStatus(OrderStatus.CANCELLED);
 
-        when(orderService.findOrdersByUserId(1L)).thenReturn(List.of(order));
+        when(orderService.cancelOrder(orderId)).thenReturn(cancelledOrder);
 
         // Act & Assert
-        mockMvc.perform(get("/api/orders/user/1"))
+        mockMvc.perform(put("/api/orders/{orderId}/cancel", orderId))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].userId").value(1L));
+                .andExpect(jsonPath("$.status").value("CANCELLED"));
+    }
+
+    @Test
+    void getOrdersByUserId_shouldReturnPaginatedOrders() throws Exception {
+        // Arrange
+        Long userId = 1L;
+        Pageable pageable = PageRequest.of(0, 1);
+        Order order = new Order();
+        order.setUserId(userId);
+        Slice<Order> orderSlice = new SliceImpl<>(List.of(order), pageable, false);
+
+        when(orderService.findOrdersByUserId(eq(userId), any(Pageable.class))).thenReturn(orderSlice);
+
+        // Act & Assert
+        mockMvc.perform(get("/api/orders/user/{userId}", userId)
+                        .param("page", "0")
+                        .param("size", "1"))
+                .andExpect(status().isOk())
+                // Check that the response contains the 'content' array for the items
+                .andExpect(jsonPath("$.content").isArray())
+                .andExpect(jsonPath("$.content[0].userId").value(userId))
+                // Check the pagination metadata
+                .andExpect(jsonPath("$.pageable.pageNumber").value(0))
+                .andExpect(jsonPath("$.size").value(1));
     }
 }
